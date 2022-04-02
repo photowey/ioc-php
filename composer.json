@@ -1,0 +1,31 @@
+{
+  "name": "pioc/ioc-php",
+  "description": "the poor IOC container for php language.",
+  "type": "library",
+  "license": "Apache2.0",
+  "autoload": {
+    "psr-4": {
+      "Pioc\\IocPhp\\": "src/"
+    },
+    "files": [
+      "src/common/files.php",
+      "src/common/jsons.php",
+      "src/common/prints.php",
+      "src/common/strings.php"
+    ]
+  },
+  "authors": [
+    {
+      "name": "photowey",
+      "email": "photowey@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "require": {
+    "ext-json": "*",
+    "ext-mbstring": "*"
+  }
+}
