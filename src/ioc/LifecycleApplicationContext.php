@@ -70,7 +70,7 @@ class LifecycleApplicationContext extends StandardApplicationContext implements 
         // 判断-该 {@code bean} name 是否为手动注册的 {@code bean} 的名称
         // 如果 - 不是-则通过 {@code beanNameGenerator} 再尝试构造一次 {@code bean} name
         // 然后尝试 -> 从 {@code IOC} 容器中获取 {@code bean} {@code instance}
-        if (isset($handle_register_bean_name[$bean])) {
+        if (!isset($handle_register_bean_name[$bean])) {
             $beanNameGenerator = parent::beanNameGenerator();
             $bean_name = $beanNameGenerator->generate($bean);
         }
