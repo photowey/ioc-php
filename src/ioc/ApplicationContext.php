@@ -15,7 +15,7 @@ use Exception;
 interface ApplicationContext extends BeanFactory
 {
     /**
-     * 通过 {@code class} 类进行 {@code ClasspathApplicationContext} 注册
+     * 通过 {@code class} 类进行 {@code StandardApplicationContext} 注册
      * @param object | callable | string $clazz 类名 或者 闭包函数
      * @param bool $allowDuplicate 是否允许重复注册
      * @return void
@@ -24,7 +24,7 @@ interface ApplicationContext extends BeanFactory
     public function registerz($clazz, bool $allowDuplicate = false);
 
     /**
-     * 根据 {@code clazz} 类称从 {@code ClasspathApplicationContext} 中 获取实例
+     * 根据 {@code clazz} 类称从 {@code StandardApplicationContext} 中 获取实例
      * @param string $clazz 类名
      * @param bool $allowNull 是否允许重复注册
      * @return mixed|null

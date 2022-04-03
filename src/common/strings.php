@@ -62,7 +62,7 @@ if (!function_exists('pends_with')) {
 
 if (!function_exists('clazz_bean_name_suffix')) {
     /**
-     * 构建 {@bean} 在 {@code ClasspathApplicationContext} 中注册的名称
+     * 构建 {@bean} 在 {@code StandardApplicationContext} 中注册的名称
      * @return string {@code bean} name
      */
     function clazz_bean_name_suffix(): string

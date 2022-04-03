@@ -4,7 +4,7 @@ namespace ioc;
 
 use Exception;
 use PHPUnit\Framework\TestCase;
-use Pioc\IocPhp\ioc\ClasspathApplicationContext;
+use Pioc\IocPhp\ioc\StandardApplicationContext;
 
 /**
  * {@code ApplicationContextTest} 测试类
@@ -21,7 +21,7 @@ class ApplicationContextTest extends TestCase
      */
     public function testIoc()
     {
-        $applicationContext = new ClasspathApplicationContext();
+        $applicationContext = new StandardApplicationContext();
 
         // 通过 bean name 和 bean instance 向 {@code IOC} 容器 手动注册
         $student = new Student();
@@ -51,7 +51,7 @@ class ApplicationContextTest extends TestCase
      */
     public function testIocDI()
     {
-        $applicationContext = new ClasspathApplicationContext();
+        $applicationContext = new StandardApplicationContext();
         // 通过 类名 获取 {@code IOC} 已注册的实例
         // 通过构造函数的 类名 - 自动向 {@code IOC} 容器 获取对应的依赖-并注入到对应的属性中
         $applicationContext->registerz(Department::class);
