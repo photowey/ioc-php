@@ -21,7 +21,7 @@ interface ApplicationContext extends BeanFactory
      * @return void
      * @throws Exception
      */
-    public function registerz($clazz, bool $allowDuplicate = false);
+    public function registerz($clazz, bool $allowDuplicate = false): void;
 
     /**
      * 根据 {@code clazz} 类称从 {@code StandardApplicationContext} 中 获取实例

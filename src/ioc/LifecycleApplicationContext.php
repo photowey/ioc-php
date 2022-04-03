@@ -75,14 +75,7 @@ class LifecycleApplicationContext extends StandardApplicationContext implements 
             $bean_name = $beanNameGenerator->generate($bean);
         }
 
-        $instance = $this->getBean($bean_name);
-        if (is_null($instance)) {
-            return false;
-        }
-
-        unset($this->ioc[$bean_name]);
-
-        return true;
+        return $this->inner_destroy($bean_name);
     }
 
     /**
@@ -96,14 +89,7 @@ class LifecycleApplicationContext extends StandardApplicationContext implements 
         $beanNameGenerator = parent::beanNameGenerator();
         $bean_name = $beanNameGenerator->generatez($clazz);
 
-        $instance = $this->getBean($bean_name);
-        if (is_null($instance)) {
-            return false;
-        }
-
-        unset($this->ioc[$bean_name]);
-
-        return true;
+        return $this->inner_destroy($bean_name);
     }
 
     // ---------------------------------------------------------------
@@ -134,6 +120,24 @@ class LifecycleApplicationContext extends StandardApplicationContext implements 
         // 操作可见性 - 强制设值
         $prop->setAccessible(true);
         $prop->setValue($instance, $propertyValues);
+
+        return true;
+    }
+
+    /**
+     * 销毁 {@code bean}
+     * @param string $bean {@code bean} 名称
+     * @return bool
+     * @throws Exception
+     */
+    public function inner_destroy(string $bean): bool
+    {
+        $instance = $this->getBean($bean);
+        if (is_null($instance)) {
+            return false;
+        }
+
+        unset($this->ioc[$bean]);
 
         return true;
     }

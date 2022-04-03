@@ -18,7 +18,8 @@ use ReflectionClass;
 class StandardApplicationContext implements ApplicationContext
 {
     /**
-     * {@codeIOC} 容器
+     * {@code IOC} 容器
+     * 是否有必要 - 将 {@code ioc} 设计为: 二维数组
      * @var array
      */
     protected $ioc = array();
@@ -82,7 +83,7 @@ class StandardApplicationContext implements ApplicationContext
      * @return void
      * @throws Exception
      */
-    public function register(string $bean, $instance, bool $allowDuplicate = false)
+    public function register(string $bean, $instance, bool $allowDuplicate = false): void
     {
         // 手动注册 的 {@code bean} 的名称-需要单独记录下来
         // 销毁的时候 - 可能会使用
@@ -98,7 +99,7 @@ class StandardApplicationContext implements ApplicationContext
      * @return void
      * @throws Exception
      */
-    public function registerz($clazz, bool $allowDuplicate = false)
+    public function registerz($clazz, bool $allowDuplicate = false): void
     {
         $beanNameGenerator = $this->beanNameGenerator();
         $bean = $beanNameGenerator->generatez($clazz);
@@ -124,7 +125,7 @@ class StandardApplicationContext implements ApplicationContext
      * @return void
      * @throws Exception
      */
-    private function inner_register(string $bean, $instance, bool $allowDuplicate = false, bool $handleSuffix = false)
+    private function inner_register(string $bean, $instance, bool $allowDuplicate = false, bool $handleSuffix = false): void
     {
         $beanNameGenerator = $this->beanNameGenerator();
         $suffix = clazz_bean_name_suffix();
@@ -143,7 +144,7 @@ class StandardApplicationContext implements ApplicationContext
      * @param $instance {@code bean} 实例 或者 闭包回调函数
      * @return void
      */
-    private function inner_ioc_bean_register(string $bean, $instance)
+    private function inner_ioc_bean_register(string $bean, $instance): void
     {
         if ($instance instanceof Closure) {
             $this->ioc[$bean] = $instance();
@@ -168,7 +169,7 @@ class StandardApplicationContext implements ApplicationContext
     /**
      * @throws Exception
      */
-    protected function inner_ioc_bean_registerz(string $bean, $clazz)
+    protected function inner_ioc_bean_registerz(string $bean, $clazz): void
     {
         $beanz = $this->getBeanz(DefaultBeanNameGenerator::class);
         if (is_null($beanz())) {

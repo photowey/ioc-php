@@ -43,7 +43,7 @@ interface BeanFactory extends ObjectFactory
      * @return void
      * @throws Exception
      */
-    public function register(string $bean, $instance, bool $allowDuplicate = false);
+    public function register(string $bean, $instance, bool $allowDuplicate = false): void;
 
     /**
      * 根据 {@code bean} 名称从 {@code StandardApplicationContext} 中 获取实例
@@ -52,5 +52,5 @@ interface BeanFactory extends ObjectFactory
      * @return mixed|null
      * @throws Exception
      */
-    public function getBean(string $bean, bool $allowNull = true);
+    public function getBean(string $bean, bool $allowNull = true): void;
 }
