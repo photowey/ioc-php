@@ -2,13 +2,20 @@
 
 > the poor `IOC ` container for `php ` language.
 
-## 0.容器能力
+## 0.`IOC` 容器能力
 
-- 1.向 `IOC` 注册 `bean`·
-- 2.向 `IOC` 获取 `bean`.
-- 3.销毁 `IOC` 容器中已注册的 `bean`.
+- 1.向 `IOC` 注册 `bean`;
+- 2.向 `IOC` 获取 `bean`;
+- 3.销毁 `IOC` 容器中已注册的 `bean`;
 - 4.刷新 已经注册 `IOC` 容器的`bean` 的属性·
--
+
+### 0.1.标准 `IOC` 容器
+
+![](./doc/standard.jpg)
+
+### 0.2.生命周期 `IOC` 容器
+
+![](./doc/lifecycle.jpg)
 
 ## 1.创建 `IOC` 容器
 
