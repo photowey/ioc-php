@@ -113,7 +113,14 @@ class LifecycleApplicationContext extends StandardApplicationContext implements 
 
         $clazz = get_class($instance);
         $reflector = new ReflectionClass($clazz);
-        $prop = $reflector->getProperty($property);
+        // throw ReflectionException : Property xxx does not exist
+        $prop = Null;
+        try {
+            $prop = $reflector->getProperty($property);
+        } catch (ReflectionException $e) {
+            return false;
+        }
+
         if (is_null($prop)) {
             return false;
         }

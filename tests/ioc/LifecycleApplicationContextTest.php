@@ -45,10 +45,42 @@ class LifecycleApplicationContextTest extends TestCase
         $this->assertEquals('Sharkchili', $personRefreshed->name);
     }
 
+    /**
+     * @throws Exception
+     */
+    public function testRefreshPropertyBeanNotInIoc()
+    {
+        $applicationContext = new LifecycleApplicationContext();
+        $applicationContext->registerz(Person::class);
+        $person = $applicationContext->getBeanz(Person::class);
+        $this->assertNotNull($person);
+        $this->assertEquals('Adam', $person->name);
+
+        $refreshPropertiesz = $applicationContext->refreshPropertiesz(Man::class, 'name', 'Sharkchili');
+        $this->assertFalse($refreshPropertiesz);
+    }
+
+    /**
+     * @throws Exception
+     */
+    public function testRefreshPropertyPropertyNotInBean()
+    {
+        $applicationContext = new LifecycleApplicationContext();
+        $applicationContext->registerz(Man::class);
+        $refreshPropertiesz = $applicationContext->refreshPropertiesz(Man::class, 'province', 'Chongqing, Chain');
+        $this->assertFalse($refreshPropertiesz);
+    }
+
 }
 
 class Person
 {
     public $name = 'Adam';
+    public $age = 18;
+}
+
+class Man
+{
+    public $name = 'SuperMan';
     public $age = 18;
 }
