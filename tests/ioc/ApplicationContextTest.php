@@ -33,15 +33,13 @@ class ApplicationContextTest extends TestCase
         // 通过 自定义的 {@code bean} name 获取 {@code IOC} 已注册的实例
         // 可 通过 {@code $allowNull} 参数决定-是否允许返回 {@code NULL} 空
         $st = $applicationContext->getBean('student');
-
-        assert(!is_null($st), 'the bean retrieve from ioc can\'t be null');
-        assert('Adam' === $st->name);
+        $this->assertNotNull($st, 'the bean retrieve from ioc can\'t be null');;
+        $this->assertEquals('Adam', $st->name);
 
         // 通过 类名 获取 {@code IOC} 已注册的实例
         // 可 通过 {@code $allowNull} 参数决定-是否允许返回 {@code NULL} 空
         $gd = $applicationContext->getBeanz(Grade::class);
-        assert(!is_null($gd), sprintf('the bean:%s retrieve from ioc can\'t be null', Grade::class));
-
+        $this->assertNotNull($gd, sprintf('the bean:%s retrieve from ioc can\'t be null', Grade::class));
         $this->assertEquals('Grade1', $gd->name);
     }
 
