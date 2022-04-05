@@ -15,54 +15,60 @@
 > ```php
 > class Student
 > {
->     public $name = 'Adam';
->     public $age = 18;
+>  public $name = 'Adam';
+>  public $age = 18;
 > }
 > 
 > class Grade
 > {
->     public $name = 'Grade1';
->     public $level = 2;
+>  public $name = 'Grade1';
+>  public $level = 2;
+> }
+> 
+> class Man
+> {
+>     public $name = 'SuperMan';
+>     public $age = 18;
 > }
 > 
 > class Group
 > {
->     public function doSomething()
->     {
->         echo __CLASS__ . ":" . 'sayHello' . "\n";
->     }
+>  public function doSomething()
+>  {
+>      echo __CLASS__ . ":" . 'sayHello' . "\n";
+>  }
 > }
 > 
 > class Department
 > {
->     private $group;
+>  private $group;
 > 
->     public function __construct(Group $group)
->     {
->         $this->group = $group;
->     }
+>  public function __construct(Group $group)
+>  {
+>      $this->group = $group;
+>  }
 > 
->     public function doSomething()
->     {
->         $this->group->doSomething();
->         echo __CLASS__ . ":" . 'sayHello' . "\n";
->     }
+>  public function doSomething()
+>  {
+>      $this->group->doSomething();
+>      echo __CLASS__ . ":" . 'sayHello' . "\n";
+>  }
 > }
 > 
 > class Company
 > {
->     private $department;
+>  private $department;
 > 
->     public function __construct(Department $department)
->     {
->         $this->department = $department;
->     }
+>  public function __construct(Department $department)
+>  {
+>      $this->department = $department;
+>  }
 > 
->     public function doSomething()
->     {
->         $this->department->doSomething();
->         echo __CLASS__ . ":" . 'sayHello' . "\n";
->     }
+>  public function doSomething()
+>  {
+>      $this->department->doSomething();
+>      echo __CLASS__ . ":" . 'sayHello' . "\n";
+>  }
 > }
 > ```
 >
