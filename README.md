@@ -9,13 +9,15 @@
 - 3.销毁 `IOC` 容器中已注册的 `bean`;
 - 4.刷新 已经注册 `IOC` 容器的`bean` 的属性·
 
+
+
 ### 0.1.标准 `IOC` 容器
 
 ![](./doc/standard.jpg)
 
 ### 0.2.生命周期 `IOC` 容器
-
 ![](./doc/lifecycle.jpg)
+
 
 ## 1.创建 `IOC` 容器
 
