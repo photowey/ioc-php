@@ -52,5 +52,5 @@ interface BeanFactory extends ObjectFactory
      * @return mixed|null
      * @throws Exception
      */
-    public function getBean(string $bean, bool $allowNull = true): void;
+    public function getBean(string $bean, bool $allowNull = true);
 }
