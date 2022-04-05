@@ -202,11 +202,11 @@ $this->assertFalse($refreshPropertiesz);
 
 ## 8.`RoadMap`
 
-- 1.抽取 `bean` 的实现的接口列表,并添加映射;
-- 2.抽取 `bean` 的继承父类列表,并添加映射;
-- 3.实现通过父类(接口类) 实现列表获取或者列表注入;
+- 1.抽取 `bean` 实现的接口列表,并添加映射;
+- 2.抽取 `bean` 继承的父类列表,并添加映射;
+- 3.实现通过父类(接口类) 获取子类实例列表或者通过父类(接口类)申明而实现列表注入;
 - 4.实现 `beandefinition` 实例;
 - 5.实现 `XML` 配置,自动实例话 bean 并注册到 `IOC` 容器;
-    - 类似于 `Spring`(`Java`) 的 `applicationContext.xml`
+  - 类似于 `Spring`(`Java`) 的 `applicationContext.xml`
 - 6.实现注释注解的自动配置
-    - 类似于 `Spring Boot` (`Java`) 的 `@EnableAutoConfiguration`
+  - 类似于 `Spring Boot` (`Java`) 的 `@EnableAutoConfiguration`
