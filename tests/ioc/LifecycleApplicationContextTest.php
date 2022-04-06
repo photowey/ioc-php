@@ -67,7 +67,7 @@ class LifecycleApplicationContextTest extends TestCase
     {
         $applicationContext = new LifecycleApplicationContext();
         $applicationContext->registerz(Man::class);
-        $refreshPropertiesz = $applicationContext->refreshPropertiesz(Man::class, 'province', 'Chongqing, Chain');
+        $refreshPropertiesz = $applicationContext->refreshPropertiesz(Man::class, 'province', 'Chongqing, China');
         $this->assertFalse($refreshPropertiesz);
     }
 
